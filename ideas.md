@@ -1,0 +1,31 @@
+- 2D game about plants
+- Make plants grow
+- You have to defend the farm from animals / enemies
+- You have to water all the plants
+- You have to think about the location of all plants
+- Day / night cycle
+- Seasons
+- Inventory system
+- Many types of plants including buildings
+- Plants with special effects
+- Bugs interacts with the plants
+- The plants can wither
+- Different types of terrain
+- Trees?
+- You have to wait time while you improve or build things
+- Plants doing work? Like collecting items? or healthing other plants?
+- Complex irrigation system, pipes, sprinklers, bombs, etc
+- Market plant to shell items
+- Trash plant to throw items
+- Like Slime Rancher but with plants
+- Plants with special care
+- Random plants can grow outside the farm
+- If you don't plant in a farm space, wild grass will grow up
+- Tools?
+- How to remove wild grass? with tools? with other plants? with the hand?
+- Research? With some benefits for the farm like plants growing faster or less time to build things up
+- Maybe water plants?
+- How about other sections of the map with other climates like tundra, desert, etc
+- Types of plants?
+- Crafting items with another items
+
