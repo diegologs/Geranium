@@ -1,3 +1,5 @@
+package io.github.frostqui;
+
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -9,7 +11,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Geranium extends Canvas implements Runnable{
+public class Game extends Canvas implements Runnable{
 	
 	/**
 	 * 
@@ -32,7 +34,7 @@ public class Geranium extends Canvas implements Runnable{
 	
 	private int x;
 	
-	public Geranium() {
+	public Game() {
 		
 		Dimension dim = new Dimension(WIDTH * SCALE, HEIGHT * SCALE );
 		setPreferredSize(dim);
@@ -47,14 +49,14 @@ public class Geranium extends Canvas implements Runnable{
 	
 	public static void createWindow() {
 	
-		Geranium geranium = new Geranium();
-		geranium.frame.setTitle("Geranium");
-		geranium.frame.add(geranium);
-		geranium.frame.pack();
-		geranium.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		geranium.frame.setVisible(true);
-		geranium.frame.setLocationRelativeTo(null);
-		geranium.start();
+		Game game= new Game();
+		game.frame.setTitle("Geranium");
+		game.frame.add(game);
+		game.frame.pack();
+		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		game.frame.setVisible(true);
+		game.frame.setLocationRelativeTo(null);
+		game.start();
 		
 		
 		
