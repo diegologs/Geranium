@@ -11,6 +11,8 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import io.github.frostqui.gui.Screen;
+
 public class Game extends Canvas implements Runnable{
 	
 	/**
@@ -32,6 +34,8 @@ public class Game extends Canvas implements Runnable{
 	private Thread thread;
 	private Random random;
 	
+	private static Screen screen;
+	
 	private int x;
 	
 	public Game() {
@@ -40,10 +44,13 @@ public class Game extends Canvas implements Runnable{
 		setPreferredSize(dim);
 		frame = new JFrame();
 		
+		
 	}
 
 	public static void main(String args[]) {
 		createWindow();
+		screen = new Screen(WIDTH, HEIGHT);
+		
 		
 	}
 	
@@ -137,10 +144,11 @@ public class Game extends Canvas implements Runnable{
 			
 		}
 		
+		screen.render(0,0);
 
 		
 		for(int i=0; i<pixels.length; i++){
-			pixels[i] = i + x;
+			pixels[i] = screen.pixels[i];
 		}
 		
 		Graphics g = bs.getDrawGraphics();
