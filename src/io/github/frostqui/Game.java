@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import io.github.frostqui.gui.Screen;
+import io.github.frostqui.gui.Sprite;
 
 public class Game extends Canvas implements Runnable{
 	
@@ -38,6 +39,8 @@ public class Game extends Canvas implements Runnable{
 	
 	private int x;
 	
+	private static Sprite testSprite;
+	
 	public Game() {
 		
 		Dimension dim = new Dimension(WIDTH * SCALE, HEIGHT * SCALE );
@@ -50,6 +53,7 @@ public class Game extends Canvas implements Runnable{
 	public static void main(String args[]) {
 		createWindow();
 		screen = new Screen(WIDTH, HEIGHT);
+		testSprite = new Sprite(32, 64,16);
 		
 		
 	}
@@ -144,12 +148,15 @@ public class Game extends Canvas implements Runnable{
 			
 		}
 		
-		screen.render(0,0);
+		screen.clear();
+		screen.renderSprite(testSprite);
 
 		
 		for(int i=0; i<pixels.length; i++){
 			pixels[i] = screen.pixels[i];
 		}
+		
+		
 		
 		Graphics g = bs.getDrawGraphics();
 		
