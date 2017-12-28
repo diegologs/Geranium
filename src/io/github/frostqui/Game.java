@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import io.github.frostqui.gui.Screen;
 import io.github.frostqui.gui.Sprite;
 import io.github.frostqui.gui.SpriteSheet;
+import io.github.frostqui.world.Map;
 
 public class Game extends Canvas implements Runnable{
 	
@@ -38,9 +39,11 @@ public class Game extends Canvas implements Runnable{
 	
 	private static Screen screen;
 	
+	private static Map map;
+	
 	private int x;
 	
-	private static Sprite testSprite;
+
 	
 	public Game() {
 		
@@ -54,7 +57,8 @@ public class Game extends Canvas implements Runnable{
 	public static void main(String args[]) {
 		createWindow();
 		screen = new Screen(WIDTH, HEIGHT);
-		testSprite = new Sprite(32, 64,64, SpriteSheet.tiles);
+		map = new Map(WIDTH, HEIGHT);
+	
 		
 		
 	}
@@ -150,7 +154,8 @@ public class Game extends Canvas implements Runnable{
 		}
 		
 		screen.clear();
-		screen.renderSprite(Sprite.grass);
+		
+		map.render(screen);
 
 		
 		for(int i=0; i<pixels.length; i++){
