@@ -45,7 +45,7 @@ public class Screen {
 			int ya = j + sprite.y;
 			for (int i = 0; i < sprite.size; i++) {
 				int xa = i + sprite.x;
-				if(xa<0 || ya < 0 || xa >= w || ya >= h)break;
+				if(xa<0 || ya < 0 || xa >= w || ya >= h )break;
 				pixels[xa + ya * w] = sprite.pixels[i + j * sprite.size];
 			}
 		}

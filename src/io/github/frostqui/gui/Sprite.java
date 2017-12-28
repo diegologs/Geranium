@@ -1,25 +1,36 @@
 package io.github.frostqui.gui;
 
 public class Sprite {
-	
+
 	public int x,y;
-	public int[] pixels;
 	public int size;
+	public int[] pixels;
+	public SpriteSheet sheet;
+
 	
-	
-	public Sprite(int x, int y, int size) {
-		this.x = x;
-		this.y = y;
+	public static Sprite grass = new Sprite(0,0,16,SpriteSheet.tiles);
+
+	public Sprite(int x, int y, int size, SpriteSheet sheet){
+		
+		/* Loads the position of the sprite in the spriteSheet */
+		
+		this.x = x; 
+		this.y = y; 
+		
 		this.size = size;
-		this.pixels = new int[size*size];
-		
+		this.sheet = sheet;
+		pixels = new int[size * size];
 		load();
-	}
 		
-	private void load() {
-		for(int i = 0; i < this.pixels.length; i++) {
-			this.pixels[i] = 0xff00ff;
+	}
+	
+	private void load(){
+		for (int y = 0; y<size; y++){
+			for (int x= 0; x<size; x++){
+				pixels[x+y*size] = sheet.getPixels()[(x + this.x) + ( y + this.y) * sheet.getSize()]; 
+			}
 		}
 	}
-	
+
 }
+
