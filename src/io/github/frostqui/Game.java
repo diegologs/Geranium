@@ -1,22 +1,24 @@
 package io.github.frostqui;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.EventListener;
 import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 import io.github.frostqui.gui.Screen;
-import io.github.frostqui.gui.Sprite;
-import io.github.frostqui.gui.SpriteSheet;
+
+import io.github.frostqui.input.Keyboard;
 import io.github.frostqui.world.Map;
 
-public class Game extends Canvas implements Runnable{
+public class Game extends Canvas implements Runnable, EventListener{
 	
 	/**
 	 * 
@@ -41,15 +43,20 @@ public class Game extends Canvas implements Runnable{
 	
 	private static Map map;
 	
+	private Keyboard key;
+	
 	private int x;
 	
 
 	
 	public Game() {
-		
+		key = new Keyboard();
+		addKeyListener(key);
 		Dimension dim = new Dimension(WIDTH * SCALE, HEIGHT * SCALE );
 		setPreferredSize(dim);
 		frame = new JFrame();
+		
+		
 		
 		
 	}
@@ -58,6 +65,8 @@ public class Game extends Canvas implements Runnable{
 		createWindow();
 		screen = new Screen(WIDTH, HEIGHT);
 		map = new Map(WIDTH * 2, HEIGHT);
+		
+		
 	
 		
 		
@@ -158,7 +167,7 @@ public class Game extends Canvas implements Runnable{
 		map.render(screen);
 
 		
-		for(int i=0; i<pixels.length; i++){
+		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
 		}
 		
@@ -167,6 +176,9 @@ public class Game extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		g.setColor(new Color(0xff00ff));
+		g.fillRect(0,  0, getWidth(), getHeight());
+		g.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
 		
 		g.dispose();
 		bs.show();
@@ -174,8 +186,23 @@ public class Game extends Canvas implements Runnable{
 	}
 
 	private void tick() {
-		screen.camera.x++;
-	
+		key.update();
+		
+		if(key.up) {
+			screen.camera.y--;
+		}
+		
+		if(key.right) {
+			screen.camera.x++;
+		}
+		
+		if(key.down) {
+			screen.camera.y++;
+		}
+		
+		if(key.left) {
+			screen.camera.x--;
+		}
 		
 	}
 	
