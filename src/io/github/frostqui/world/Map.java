@@ -22,6 +22,7 @@ public class Map {
 	public Map(int w, int h) {
 		this.w = w;
 		this.h = h;
+	
 		tiles = new int[w * h];
 		random = new Random();
 		
@@ -48,11 +49,11 @@ public class Map {
 
 	}
 	
-	public Sprite getTile(int x, int y) {
+	public Tile getTile(int x, int y) {
 		if(tiles[x + y * w] == 0) {
-			return Sprite.grass;
+			return Tile.grass;
 		}else {
-			return Sprite.pink;
+			return Tile.grass;
 		}
 	}
 	

@@ -57,7 +57,7 @@ public class Game extends Canvas implements Runnable{
 	public static void main(String args[]) {
 		createWindow();
 		screen = new Screen(WIDTH, HEIGHT);
-		map = new Map(WIDTH, HEIGHT);
+		map = new Map(WIDTH * 2, HEIGHT);
 	
 		
 		
@@ -174,7 +174,7 @@ public class Game extends Canvas implements Runnable{
 	}
 
 	private void tick() {
-		x++;
+		screen.camera.x++;
 	
 		
 	}

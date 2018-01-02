@@ -10,16 +10,19 @@ public class Screen {
 	public int[] pixels;
 
 	private Random random;
-	private Map map;
+
 
 	private int[] tiles;
+	
+	public Camera camera;
 
 	public Screen(int w, int h) {
 		this.w = w;
 		this.h = h;
 		this.pixels = new int[w * h];
 		this.random = new Random();
-		this.map = new Map(w, h);
+	
+		this.camera = new Camera(w,h);
 	}
 
 	public void render(int xOff, int yOff) {
@@ -49,27 +52,30 @@ public class Screen {
 	public void renderSprite(int x, int y, Sprite sprite) {
 	
 		for (int j = 0; j < sprite.size; j++) {
-			int ya = j + y;
+			int ya = j + y + camera.y;
 			for (int i = 0; i < sprite.size; i++) {
-				int xa = i + x;
+				int xa = i + x + camera.x;
 				if(xa<0 || ya < 0 || xa >= w || ya >= h )break;
 				pixels[xa + ya * w] = sprite.pixels[i + j * sprite.size];
 			}
 		}
-
+		
+		
 		
 	}
 	
-	public void renderTile(Tile tile) {
+	public void renderTile(int x, int y, Tile tile) {
 		
-		for (int j = 0; j < tile.size; j++) {
-			int ya = j + tile.y;
-			for (int i = 0; i < tile.size; i++) {
-				int xa = i + tile.x;
-				if(xa<0 || ya < 0 || xa >= w || ya >= h )break;
-				pixels[xa + ya * w] = tile.pixels[i + j * tile.size];
+		for (int j = 0; j < tile.sprite.size; j++) {
+			int ya = j + y - camera.y;
+			for (int i = 0; i < tile.sprite.size; i++) {
+				int xa = i + x - camera.x;
+				if(xa <= 0 || ya <= 0 || xa >= w || ya >= h )break;
+				pixels[xa + ya * w] = tile.sprite.pixels[i + j * tile.sprite.size];
 			}
 		}
+		
+		
 
 		
 	}
@@ -78,6 +84,8 @@ public class Screen {
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = 0x000000;
 		}
+		
+		
 	}
 
 }

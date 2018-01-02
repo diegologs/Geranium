@@ -1,19 +1,22 @@
 package io.github.frostqui.gui;
 
-public class Tile extends Sprite {
+public class Tile {
 	
-	public static Tile grass = new Tile(0,0,0,0, 16, SpriteSheet.tiles);
 
-	public Tile(int x, int y, int xoff, int yoff, int size, SpriteSheet sheet) {
-		super(x, y, xoff, yoff, size, sheet);
+	public Sprite sprite;
+
+
+	
+	public static Tile grass = new Tile(Sprite.grass);
+
+	public Tile(Sprite sprite) {
+		this.sprite = sprite;
 		
 	}
 	
-	public void render(Screen screen) {
-		System.out.println("eeeee");
-		screen.renderTile(this);
+	public void render(int x, int y, Screen screen) {
+		screen.renderTile(x, y, this);
 	}
-	
 	
 
 }

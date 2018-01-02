@@ -9,15 +9,14 @@ public class Sprite {
 	public SpriteSheet sheet;
 
 	
-	public static Sprite grass = new Sprite(0,0,0,0,16,SpriteSheet.tiles);
-	public static Sprite pink = new Sprite(0,0,16,16,16,SpriteSheet.tiles);
+	public static Sprite grass = new Sprite(0,0,16,SpriteSheet.tiles);
+	public static Sprite pink = new Sprite(16,16,16,SpriteSheet.tiles);
 
-	public Sprite(int x, int y, int xoff, int yoff, int size, SpriteSheet sheet){
+	public Sprite(int xoff, int yoff, int size, SpriteSheet sheet){
 		
 		/* Loads the position of the sprite in the spriteSheet */
 		
-		this.x = x; 
-		this.y = y; 
+	
 		this.xoff= xoff;
 		this.yoff= yoff;
 		
