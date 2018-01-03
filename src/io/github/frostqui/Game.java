@@ -64,7 +64,7 @@ public class Game extends Canvas implements Runnable, EventListener{
 	public static void main(String args[]) {
 		createWindow();
 		screen = new Screen(WIDTH, HEIGHT);
-		map = new Map(WIDTH * 2, HEIGHT);
+		map = new Map(WIDTH * 2, HEIGHT * 2);
 		
 		
 	

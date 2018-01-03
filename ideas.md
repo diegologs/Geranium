@@ -28,4 +28,4 @@
 - How about other sections of the map with other climates like tundra, desert, etc
 - Types of plants?
 - Crafting items with another items
-
+- Wild grass with trash like wheels, cans, etc
