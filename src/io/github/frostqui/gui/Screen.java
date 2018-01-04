@@ -15,6 +15,8 @@ public class Screen {
 	private int[] tiles;
 	
 	public Camera camera;
+	
+	private final int ALPHA_COL = 0xffff00ff;
 
 	public Screen(int w, int h) {
 		this.w = w;
@@ -80,6 +82,22 @@ public class Screen {
 
 		
 	}
+	
+	public void renderTextCharacter(int xp, int yp, Sprite sprite, int color, boolean fixed) {
+		if (fixed) {
+			xp -= camera.y;
+			yp -= camera.y;
+		}
+		for (int y = 0; y < sprite.getHeight(); y++) {
+			int ya = y + yp;
+			for (int x = 0; x < sprite.getWidth(); x++) {
+				int xa = x + xp;
+				if (xa < 0 || xa >= w || ya < 0 || ya >= h) continue;
+				int col = sprite.pixels[x + y * sprite.getWidth()];
+				if (col != ALPHA_COL && col != 0xff7f007f) pixels[xa + ya * w] = color;
+			}
+		}
+}
 
 	public void clear() {
 		for (int i = 0; i < pixels.length; i++) {

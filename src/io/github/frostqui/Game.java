@@ -12,7 +12,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
-
+import io.github.frostqui.gui.Font;
 import io.github.frostqui.gui.Screen;
 
 import io.github.frostqui.input.Keyboard;
@@ -24,10 +24,12 @@ public class Game extends Canvas implements Runnable, EventListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public static final int WIDTH = 420;
+	public static final int WIDTH = 320;
 	public static final int HEIGHT = WIDTH / 16 * 9;
-	public static final int SCALE = 3;
+	public static final int SCALE = 4;
 	public static final String TITLE = "Geranium";
+	
+	public Font font;
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData(); //Pixels of the screen
@@ -51,6 +53,7 @@ public class Game extends Canvas implements Runnable, EventListener{
 	
 	public Game() {
 		key = new Keyboard();
+		font  = new Font();
 		addKeyListener(key);
 		Dimension dim = new Dimension(WIDTH * SCALE, HEIGHT * SCALE );
 		setPreferredSize(dim);
@@ -165,6 +168,8 @@ public class Game extends Canvas implements Runnable, EventListener{
 		screen.clear();
 		
 		map.render(screen);
+		
+		font.render(0, 0, "A", screen);
 
 		
 		for (int i = 0; i < pixels.length; i++) {

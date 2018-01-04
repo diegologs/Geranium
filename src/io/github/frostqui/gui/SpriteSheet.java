@@ -8,37 +8,41 @@ import javax.imageio.ImageIO;
 public class SpriteSheet {
 
 	public static SpriteSheet tiles = new SpriteSheet(480, "/sheet.png");
-	private int width, height;
+
+	public int width, height;
+
+	public final int SPRITE_WIDTH, SPRITE_HEIGHT;
+
 	private String path;
-	private int size;
+	public int size;
 	private int[] pixels;
-	
-	
-	
-	
-	public SpriteSheet(int size, String path){
-		
+
+	public SpriteSheet(int size, String path) {
+
+		SPRITE_WIDTH = size;
+		SPRITE_HEIGHT = size;
 		this.path = path;
 		this.setSize(size);
-		setPixels(new int[size*size]);
+		setPixels(new int[size * size]);
 		load();
-		
+
 	}
-	
-	public void load(){
-		
+
+	public void load() {
 		try {
-		
+			System.out.print("Trying to load: " + path + "...");
 			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
+			System.out.println(" succeeded!");
 			width = image.getWidth();
 			height = image.getHeight();
-			image.getRGB(0, 0, width, height, getPixels(), 0, width);
-			
+			pixels = new int[width * height];
+			image.getRGB(0, 0, width, height, pixels, 0, width);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Exception e) {
+			System.err.println(" failed!");
 		}
-		
+
 	}
 
 	public int[] getPixels() {
@@ -56,8 +60,13 @@ public class SpriteSheet {
 	public void setSize(int size) {
 		this.size = size;
 	}
-	
-	
 
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
 
 }

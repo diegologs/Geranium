@@ -28,8 +28,25 @@ public class Map {
 		
 		for(int i = 0; i< w / 16; i++) {
 			for(int j = 0; j< h / 16; j++) {
-				tiles[i+j*w] = random.nextInt(3);
+				tiles[i+j*w] = 120;
+				
+				
 			}
+			
+			
+		}
+		
+		for(int i = 0; i< w / 16; i++) {
+			for(int j = 0; j< h / 16; j++) {
+				tiles[i+0*w] = 0;					
+				tiles[i+1*w] = 1;	
+				tiles[i+2*w] = 2;	
+				tiles[0+j*w] = 0;					
+					
+				
+			}
+			
+			
 		}
 		
 		
@@ -50,11 +67,14 @@ public class Map {
 	}
 	
 	public Tile getTile(int x, int y) {
-		if(tiles[x + y * w] == 0) {
-			return Tile.grass;
-		}else {
-			return Tile.grass;
+		switch(tiles[x + y * w]) {
+		case 0: return Tile.wildgrass1;
+		case 1:return Tile.wildgrass2;
+		case 2: return Tile.wildgrass3; 
+	
+		default: return Tile.grass;
 		}
+		
 	}
 	
 	
