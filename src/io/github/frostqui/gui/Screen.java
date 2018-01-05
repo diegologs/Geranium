@@ -72,7 +72,7 @@ public class Screen {
 			for (int i = 0; i < tile.sprite.size; i++) {
 				int xa = i + x - camera.x;
 			
-				if (xa < -tile.sprite.size || ya < 0 || xa >= w || ya >= h) break;
+				if (xa < -tile.sprite.size || ya < 0 || xa >= w || ya >= h - 30) break;
 				if (xa < 0) xa = 0;
 				pixels[xa + ya * w] = tile.sprite.pixels[i + j * tile.sprite.size];
 			}

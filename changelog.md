@@ -2,9 +2,11 @@
 
 ### 0.0.2 (January 2017)
 
-    - Map class
+    - Map class with random tiles
     - Camera class
     - Input class with directional keys
+    - Font creation
+    - Mouse input 
 
 #### 0.0.1 (December 2017) 
 

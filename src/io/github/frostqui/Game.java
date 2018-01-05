@@ -159,17 +159,11 @@ public class Game extends Canvas implements Runnable, EventListener {
 
 		map.render(screen);
 
-		font.render(0, 0, "GERANIUM", screen);
+		font.render(0, HEIGHT - 25, "Geranium", screen);
 
 
 
-		if (mouse.getX() > 0 && mouse.getY() > 0) {
-			
-
-			Sprite selected = Sprite.selected;
-			screen.renderSprite((mouse.getX() / SCALE), mouse.getY() / SCALE, selected);
-			
-		}
+		
 
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
