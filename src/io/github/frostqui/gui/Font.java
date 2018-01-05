@@ -2,7 +2,7 @@ package io.github.frostqui.gui;
 
 public class Font {
 
-	private static SpriteSheet font = new SpriteSheet(80, "/font.png");
+	private static SpriteSheet font = new SpriteSheet(8, "/font.png");
 			
 	private static Sprite[] characters = Sprite.split(font);
 
@@ -24,7 +24,7 @@ public class Font {
 		int xOffset = 0;
 		int line = 0;
 		for (int i = 0; i < text.length(); i++) {
-			xOffset += 16 + spacing;
+			xOffset += 8 + spacing;
 			int yOffset = 0;
 			char currentChar = text.charAt(i);
 			if (currentChar == 'g' || currentChar == 'y' || currentChar == 'q' || currentChar == 'p' || currentChar == 'j' || currentChar == ',') yOffset = 4;
@@ -33,6 +33,7 @@ public class Font {
 				line++;
 			}
 			int index = charIndex.indexOf(currentChar);
+			
 			if (index == -1) continue;
 			screen.renderTextCharacter(x + xOffset, y + line * 20 + yOffset, characters[index], color, false);
 		}

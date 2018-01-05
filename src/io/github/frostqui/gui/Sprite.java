@@ -7,11 +7,13 @@ public class Sprite {
 	public int size;
 	public int[] pixels;
 	public SpriteSheet sheet;
+	public static int sprites_size = 16;
 	
-	public static Sprite wildgrass1 = new Sprite(0,0,16,SpriteSheet.tiles);
-	public static Sprite wildgrass2 = new Sprite(0,16,16,SpriteSheet.tiles);
-	public static Sprite wildgrass3 = new Sprite(0,32,16,SpriteSheet.tiles);
-	public static Sprite grass = new Sprite(16,32,16,SpriteSheet.tiles);
+	public static Sprite wildgrass1 = new Sprite(0*sprites_size,1*sprites_size,16,SpriteSheet.tiles);
+	public static Sprite wildgrass2 = new Sprite(0*sprites_size,2*sprites_size,16,SpriteSheet.tiles);
+	public static Sprite wildgrass3 = new Sprite(0*sprites_size,3*sprites_size,16,SpriteSheet.tiles);
+	public static Sprite grass = new Sprite(0*sprites_size,0*sprites_size,16,SpriteSheet.tiles);
+	public static Sprite selected = new Sprite(0,0,16,SpriteSheet.objects);
 
 	public Sprite(int xoff, int yoff, int size, SpriteSheet sheet){
 		

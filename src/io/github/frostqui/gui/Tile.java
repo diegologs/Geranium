@@ -4,6 +4,8 @@ public class Tile {
 	
 
 	public Sprite sprite;
+	
+	public int x,y;
 
 
 	
@@ -18,6 +20,8 @@ public class Tile {
 	}
 	
 	public void render(int x, int y, Screen screen) {
+		this.x = x;
+		this.y = y;
 		screen.renderTile(x, y, this);
 	}
 	

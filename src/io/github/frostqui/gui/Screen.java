@@ -58,7 +58,7 @@ public class Screen {
 			for (int i = 0; i < sprite.size; i++) {
 				int xa = i + x + camera.x;
 				if(xa<0 || ya < 0 || xa >= w || ya >= h )break;
-				pixels[xa + ya * w] = sprite.pixels[i + j * sprite.size];
+				if (sprite.pixels[i + j * sprite.size] != ALPHA_COL && sprite.pixels[i + j * sprite.size] != 0xff7f007f) pixels[xa + ya * w] = sprite.pixels[i + j * sprite.size];
 			}
 		}
 		

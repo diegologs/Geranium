@@ -56,11 +56,14 @@ public class Map {
 	
 
 	public void render(Screen screen) {
+		
 		for(int i = 0; i< w / 16; i++) {
 			for(int j = 0; j< h / 16; j++) {
 				getTile(i,j).render(i*16,j*16,screen);
 			}
 		}
+		
+		
 	
 	
 

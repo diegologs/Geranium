@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 public class SpriteSheet {
 
 	public static SpriteSheet tiles = new SpriteSheet(480, "/sheet.png");
+	public static SpriteSheet objects = new SpriteSheet(160, "/objects.png");
 
 	public int width, height;
 
