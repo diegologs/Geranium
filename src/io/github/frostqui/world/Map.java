@@ -5,14 +5,16 @@ import java.util.Random;
 import io.github.frostqui.gui.Screen;
 import io.github.frostqui.gui.Sprite;
 import io.github.frostqui.gui.Tile;
+import io.github.frostqui.world.tiles.DirtTile;
 import io.github.frostqui.world.tiles.GrassTile;
+import io.github.frostqui.world.tiles.PlantTile;
 
 
 
 public class Map {
 
 	public int w, h;
-	public GrassTile[] tiles;
+	public PlantTile[] tiles;
 	
 	private Random random;
 	
@@ -24,12 +26,17 @@ public class Map {
 		this.w = w;
 		this.h = h;
 	
-		tiles = new GrassTile[w * h];
+		tiles = new PlantTile[w * h];
 		random = new Random();
 		
 		for(int i = 0; i< w / 16; i++) {
 			for(int j = 0; j< h / 16; j++) {
-				tiles[i+j*w] = new GrassTile(Sprite.grass);;
+				if(random.nextInt(8) < 4)
+				{
+					tiles[i+j*w] = new DirtTile(Sprite.grass);
+				}else {
+					tiles[i+j*w] = new GrassTile(Sprite.grass);
+				}
 				
 				
 			}
@@ -50,8 +57,15 @@ public class Map {
 			for(int j = 0; j< h / 16; j++) {
 				tiles[i+j*w].render(i*16,j*16,screen);
 				tiles[i+j*w].update();
+				
+				if(tiles[i+j*w].name == "Dirt" && tiles[i+j*w].life > 15000) {
+					tiles[i+j*w] = new GrassTile(Sprite.grass);
+				}
+					
 			}
 		}
+		
+		
 		
 		
 		

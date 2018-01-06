@@ -1,12 +1,15 @@
 ## Changelog
 
 ### 0.0.2 (January 2017)
-
+    
     - Map class with random tiles
     - Camera class
     - Input class with directional keys
     - Font creation
     - Mouse input 
+    - Added lowercase font
+    - Changed the ways that the map is generated, instead of numbers, I create a random array with tiles.
+    - Plants basic growing
 
 #### 0.0.1 (December 2017) 
 

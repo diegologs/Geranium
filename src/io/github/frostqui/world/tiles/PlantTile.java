@@ -15,7 +15,9 @@ public class PlantTile extends Tile{
 	private Sprite l_tile;
 	private Sprite xl_tile;
 	
-	private int life;
+	public int life;
+	
+	public String name;
 	
 	private Random random;
 	
@@ -82,13 +84,29 @@ public class PlantTile extends Tile{
 	}
 
 	public void update() {
+		
+		super.update();
+		
 		life += random.nextInt(3);
 		
 		if(life > 5000) {
 			this.sprite = this.s_tile;
 		}
 		
-		System.out.println(this.life);
+		if(life > 7000) {
+			this.sprite = this.m_tile;
+		}
+		
+		if(life > 10000) {
+			this.sprite = this.l_tile;
+		}
+		
+		if(life > 12000) {
+			this.sprite = this.xl_tile;
+		}
+		
+	
+		
 		
 	}
 	

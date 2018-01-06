@@ -15,6 +15,7 @@ public class GrassTile extends PlantTile{
 
 	public GrassTile(Sprite sprite) {
 		super(xs,s,m,l,xl);
+		this.name = "Grass"; 
 		
 	}
 	

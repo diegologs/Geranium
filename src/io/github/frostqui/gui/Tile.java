@@ -19,5 +19,9 @@ public class Tile {
 		screen.renderTile(x, y, this);
 	}
 	
+	public void update() {
+		
+	}
+	
 
 }
