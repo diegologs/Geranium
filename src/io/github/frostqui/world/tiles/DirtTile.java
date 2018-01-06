@@ -14,6 +14,7 @@ public class DirtTile extends PlantTile {
 	public DirtTile(Sprite sprite) {
 		super(xs,s,m,l,xl);
 		this.name = "Dirt";
+		this.grow_speed = 10;
 	}
 	
 	public void render(Screen screen) {

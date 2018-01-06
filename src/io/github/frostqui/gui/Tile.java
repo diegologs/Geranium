@@ -1,7 +1,6 @@
 package io.github.frostqui.gui;
 
-public class Tile {
-	
+public class Tile {	
 
 	public Sprite sprite;
 	

@@ -29,6 +29,9 @@ public class SpriteSheet {
 
 	}
 
+	/**
+	 * Loads and initialize the pixels of the spiteSheet from the path
+	 */
 	public void load() {
 		try {
 			System.out.print("Trying to load: " + path + "...");

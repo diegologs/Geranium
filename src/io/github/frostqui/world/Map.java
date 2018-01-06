@@ -4,7 +4,6 @@ import java.util.Random;
 
 import io.github.frostqui.gui.Screen;
 import io.github.frostqui.gui.Sprite;
-import io.github.frostqui.gui.Tile;
 import io.github.frostqui.world.tiles.DirtTile;
 import io.github.frostqui.world.tiles.GrassTile;
 import io.github.frostqui.world.tiles.PlantTile;
@@ -58,7 +57,7 @@ public class Map {
 				tiles[i+j*w].render(i*16,j*16,screen);
 				tiles[i+j*w].update();
 				
-				if(tiles[i+j*w].name == "Dirt" && tiles[i+j*w].life > 15000) {
+				if(tiles[i+j*w].name == "Dirt" && tiles[i+j*w].life > 1200 * tiles[i+j*w].tick_speed) {
 					tiles[i+j*w] = new GrassTile(Sprite.grass);
 				}
 					

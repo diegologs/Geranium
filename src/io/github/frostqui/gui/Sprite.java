@@ -9,11 +9,7 @@ public class Sprite {
 	public SpriteSheet sheet;
 	public static int sprites_size = 16;
 	
-	public static Sprite wildgrass1 = new Sprite(0*sprites_size,1*sprites_size,16,SpriteSheet.tiles);
-	public static Sprite wildgrass2 = new Sprite(0*sprites_size,2*sprites_size,16,SpriteSheet.tiles);
-	public static Sprite wildgrass3 = new Sprite(0*sprites_size,3*sprites_size,16,SpriteSheet.tiles);
 	public static Sprite grass = new Sprite(0*sprites_size,0*sprites_size,16,SpriteSheet.tiles);
-	public static Sprite selected = new Sprite(0,0,16,SpriteSheet.objects);
 
 	public Sprite(int xoff, int yoff, int size, SpriteSheet sheet){
 		
@@ -40,6 +36,9 @@ public class Sprite {
 	}
 	
 	
+	/**
+	 * Loads the pixels from the SpriteSheet
+	 */
 	private void load(){
 		for (int y = 0; y<size; y++){
 			for (int x= 0; x<size; x++){
@@ -52,6 +51,12 @@ public class Sprite {
 		screen.renderSprite(x, y, this);
 	}
 	
+	
+	/**
+	 * Split each sprite of a SpriteSheet
+	 * @param sheet the sheet that's going to be divided
+	 * @return an array of sprites
+	 */
 	public static Sprite[] split(SpriteSheet sheet) {
 		int amount = (sheet.getWidth() * sheet.getHeight()) / (sheet.SPRITE_WIDTH * sheet.SPRITE_HEIGHT);
 		Sprite[] sprites = new Sprite[amount];

@@ -4,7 +4,7 @@ public class Font {
 
 	private static SpriteSheet font = new SpriteSheet(8, "/font.png");
 			
-	private static Sprite[] characters = Sprite.split(font);
+	private static Sprite[] characters = Sprite.split(font); // Sprite array of each character
 
 	private static String charIndex = "ABCDEFGHIJKLM" + //
 			"NOPQRSTUVWXYZ" + //
@@ -22,6 +22,9 @@ public class Font {
 	}
 	
 	public void render(int x, int y, int spacing, int color, String text, Screen screen) {
+		
+		// Rendering each character and adjusting them to fit 
+		
 		int xOffset = 0;
 		int line = 0;
 		for (int i = 0; i < text.length(); i++) {

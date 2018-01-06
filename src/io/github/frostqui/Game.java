@@ -29,20 +29,23 @@ public class Game extends Canvas implements Runnable, EventListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public static final int WIDTH = 350;
-	public static final int HEIGHT = WIDTH / 16 * 9;
-	public static final int SCALE = 4;
-	public static final String TITLE = "Geranium";
+	
+	public static final int WIDTH = 350; // Game width
+	public static final int HEIGHT = WIDTH / 16 * 9; // Game height. 16:9 aspect ratio
+	
+	public static final int SCALE = 4; // Scaling up the game
+	public static final String TITLE = "Geranium"; // Window name
 
 	public Font font;
 
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB); // Image where the pixels are painted
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData(); // Pixels of the screen
 
 	private JFrame frame;
 
-	private boolean running;
+	private boolean running; // If is running the game
 	private Thread thread;
+	
 	private Random random;
 
 	private static Screen screen;
@@ -52,16 +55,22 @@ public class Game extends Canvas implements Runnable, EventListener {
 	private Keyboard key;
 	private Mouse mouse;
 
-	private int x;
+	
 
 	public Game() {
+		
+		// Keyborad, font, and mouse instanctiation
+		
 		key = new Keyboard();
 		mouse = new Mouse(this);
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
-
 		font = new Font();
 		addKeyListener(key);
+
+		// Creating JFrame (window)
+		
+		
 		Dimension dim = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
 		setPreferredSize(dim);
 		frame = new JFrame();
