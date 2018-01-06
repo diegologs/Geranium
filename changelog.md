@@ -13,7 +13,7 @@
     - Added dirt tile
     - Growing speed adjustments
 
-    ![Geranium 0.0.2](https://i.imgur.com/ZM6Yz8C.png)
+![Geranium 0.0.2](https://i.imgur.com/ZM6Yz8C.png)
 
 
 #### 0.0.1 (December 2017) 
