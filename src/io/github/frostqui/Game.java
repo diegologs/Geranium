@@ -34,7 +34,7 @@ public class Game extends Canvas implements Runnable, EventListener {
 	public static final int HEIGHT = WIDTH / 16 * 9; // Game height. 16:9 aspect ratio
 	
 	public static final int SCALE = 4; // Scaling up the game
-	public static final String TITLE = "Geranium"; // Window name
+	public static final String TITLE = "Geranium 0.0.2"; // Window name
 
 	public Font font;
 

@@ -8,4 +8,8 @@ You can put your plants work for you, but you'll have to be careful cause danger
 
 This game is under development.
 
+Current version: 0.0.2 alpha
+
+![Geranium 0.0.2](https://i.imgur.com/ZM6Yz8C.png)
+
 Game created with java.
