@@ -35,7 +35,7 @@ public class PlantTile extends Tile {
 		super(sprite);
 		this.random = new Random();
 		
-		this.tick_speed = 1000;
+		this.tick_speed = 300;
 		this.tick_counter = 0;
 
 		this.xs_tite = sprite;

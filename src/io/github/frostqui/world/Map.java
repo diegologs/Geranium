@@ -5,6 +5,7 @@ import java.util.Random;
 import io.github.frostqui.gui.Screen;
 import io.github.frostqui.gui.Sprite;
 import io.github.frostqui.world.tiles.DirtTile;
+import io.github.frostqui.world.tiles.FlowerTile;
 import io.github.frostqui.world.tiles.GrassTile;
 import io.github.frostqui.world.tiles.PlantTile;
 
@@ -30,11 +31,13 @@ public class Map {
 		
 		for(int i = 0; i< w / 16; i++) {
 			for(int j = 0; j< h / 16; j++) {
-				if(random.nextInt(8) < 4)
+				if(random.nextInt(8) < 3)
 				{
 					tiles[i+j*w] = new DirtTile(Sprite.grass);
-				}else {
+				}else if(random.nextInt(8) < 6){
 					tiles[i+j*w] = new GrassTile(Sprite.grass);
+				}else {
+					tiles[i+j*w] = new FlowerTile(Sprite.grass);
 				}
 				
 				
