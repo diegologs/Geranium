@@ -21,7 +21,9 @@ import io.github.frostqui.gui.SpriteSheet;
 import io.github.frostqui.gui.Tile;
 import io.github.frostqui.input.Keyboard;
 import io.github.frostqui.input.Mouse;
+import io.github.frostqui.objects.Inventory;
 import io.github.frostqui.world.Map;
+import io.github.frostqui.world.tiles.PlantTile;
 
 public class Game extends Canvas implements Runnable, EventListener {
 
@@ -29,23 +31,24 @@ public class Game extends Canvas implements Runnable, EventListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final int WIDTH = 350; // Game width
 	public static final int HEIGHT = WIDTH / 16 * 9; // Game height. 16:9 aspect ratio
-	
+
 	public static final int SCALE = 4; // Scaling up the game
 	public static final String TITLE = "Geranium 0.0.2"; // Window name
 
 	public Font font;
 
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB); // Image where the pixels are painted
+	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB); // Image where the
+																								// pixels are painted
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData(); // Pixels of the screen
 
 	private JFrame frame;
 
 	private boolean running; // If is running the game
 	private Thread thread;
-	
+
 	private Random random;
 
 	private static Screen screen;
@@ -54,30 +57,31 @@ public class Game extends Canvas implements Runnable, EventListener {
 
 	private Keyboard key;
 	private Mouse mouse;
-
 	
+	private Inventory inventory;
 
 	public Game() {
-		
+
 		// Keyborad, font, and mouse instanctiation
-		
+
 		key = new Keyboard();
 		mouse = new Mouse(this);
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
 		font = new Font();
 		addKeyListener(key);
+		
+		inventory = new Inventory(WIDTH,HEIGHT);
 
 		// Creating JFrame (window)
-		
-		
+
 		Dimension dim = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
 		setPreferredSize(dim);
 		frame = new JFrame();
 
 	}
 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws InstantiationException, IllegalAccessException {
 		createWindow();
 		screen = new Screen(WIDTH, HEIGHT);
 		map = new Map(WIDTH * 2, HEIGHT * 2);
@@ -167,20 +171,33 @@ public class Game extends Canvas implements Runnable, EventListener {
 		screen.clear();
 
 		map.render(screen);
-
-		font.render(0, HEIGHT - 25, "Geranium", screen);
-
-
-
 		
+		inventory.render(screen);
+
+		// Code to be copied to another class
+
+		if (mouse.getY() < HEIGHT * SCALE - 30 * SCALE) {
+
+			PlantTile selected = new PlantTile(Sprite.grass);
+			if (mouse.getX() > 0 && mouse.getY() > 0) {
+
+				selected = map.getTile((mouse.getX() / SCALE) / 16, (mouse.getY() / SCALE) / 16);
+
+			}
+
+			font.render(0, HEIGHT - 25, String.valueOf(selected.name), screen);
+
+			screen.renderSprite(selected.x, selected.y, Sprite.selected);
+
+		}
+
+		// End of the code to be copied to another class
 
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
 		}
 
 		Graphics g = bs.getDrawGraphics();
-
-		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(new Color(0xff00ff));
 		g.fillRect(0, 0, getWidth(), getHeight());
 		g.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);

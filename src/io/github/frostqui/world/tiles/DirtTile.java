@@ -11,10 +11,20 @@ public class DirtTile extends PlantTile {
 	private static Sprite l = new Sprite(16*3,16,16,SpriteSheet.tiles);
 	private static Sprite xl = new Sprite(16*4,16,16,SpriteSheet.tiles);
 
-	public DirtTile(Sprite sprite) {
+	public DirtTile() {
 		super(xs,s,m,l,xl);
 		this.name = "Dirt";
 		this.grow_speed = 10;
+		this.ratio = 70;
+	}
+	
+	public DirtTile(int x, int y) {
+		super(xs,s,m,l,xl);
+		this.name = "Dirt";
+		this.grow_speed = 10;
+		this.ratio = 30;
+		this.x = x;
+		this.y = y;
 	}
 	
 	public void render(Screen screen) {

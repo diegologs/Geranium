@@ -13,10 +13,21 @@ public class GrassTile extends PlantTile{
 	private static Sprite l = new Sprite(16*3,0,16,SpriteSheet.tiles);
 	private static Sprite xl = new Sprite(16*4,0,16,SpriteSheet.tiles);
 
-	public GrassTile(Sprite sprite) {
+	public GrassTile() {
 		super(xs,s,m,l,xl);
 		this.name = "Grass"; 
 		this.grow_speed = 50;
+		this.ratio = 50;
+		
+	}
+	
+	public GrassTile(int x, int y) {
+		super(xs,s,m,l,xl);
+		this.name = "Grass"; 
+		this.grow_speed = 50;
+		this.ratio = 50;
+		this.x = x;
+		this.y = y;
 		
 	}
 	

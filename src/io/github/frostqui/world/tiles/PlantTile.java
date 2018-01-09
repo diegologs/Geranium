@@ -1,5 +1,6 @@
 package io.github.frostqui.world.tiles;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import io.github.frostqui.gui.Screen;
@@ -20,22 +21,28 @@ public class PlantTile extends Tile {
 	private int tick_counter;
 
 	public int grow_speed;
+	
+	public int ratio;
 
 	public String name;
 
 	private Random random;
+	
+	public static ArrayList<PlantTile> plants_tile = new ArrayList<PlantTile>();
 
 	public PlantTile(Sprite sprite) {
 		super(sprite);
 
 	}
-
+	
+	
+	
 	public PlantTile(Sprite sprite, Sprite s_tile, Sprite m_tile, Sprite l_tile, Sprite xl_tile) {
 
 		super(sprite);
 		this.random = new Random();
 		
-		this.tick_speed = 300;
+		this.tick_speed = 1000;
 		this.tick_counter = 0;
 
 		this.xs_tite = sprite;

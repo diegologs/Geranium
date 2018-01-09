@@ -14,10 +14,21 @@ public class FlowerTile extends PlantTile{
 	private static Sprite l = new Sprite(16*3,32,16,SpriteSheet.tiles);
 	private static Sprite xl = new Sprite(16*4,32,16,SpriteSheet.tiles);
 
-	public FlowerTile(Sprite sprite) {
+	public FlowerTile() {
 		super(xs,s,m,l,xl);
 		this.name = "Flower"; 
 		this.grow_speed = 30;
+		this.ratio = 90;
+		
+	}
+	
+	public FlowerTile(int x, int y) {
+		super(xs,s,m,l,xl);
+		this.name = "Flower"; 
+		this.grow_speed = 30;
+		this.ratio = 10;
+		this.x = x;
+		this.y = y;
 		
 	}
 	

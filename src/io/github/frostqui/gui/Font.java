@@ -38,13 +38,11 @@ public class Font {
 			
 			
 			
-			if (currentChar == 'm') {
+			if (currentChar == 'm' || currentChar == 'w' || currentChar == 'W' || currentChar == 'M') {
 				xOffset += 1;
 			}
 			
-			if (currentChar == 'w') {
-				xOffset += 1;
-			}
+			
 			
 			
 			
