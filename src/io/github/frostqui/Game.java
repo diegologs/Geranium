@@ -22,6 +22,7 @@ import io.github.frostqui.gui.Tile;
 import io.github.frostqui.input.Keyboard;
 import io.github.frostqui.input.Mouse;
 import io.github.frostqui.objects.Inventory;
+import io.github.frostqui.scenes.MainScene;
 import io.github.frostqui.world.Map;
 import io.github.frostqui.world.tiles.PlantTile;
 
@@ -53,12 +54,12 @@ public class Game extends Canvas implements Runnable, EventListener {
 
 	private static Screen screen;
 
-	private static Map map;
 
-	private Keyboard key;
-	private Mouse mouse;
+	private static MainScene mainScene;
+	private static Keyboard key;
+	private static Mouse mouse;
 	
-	private Inventory inventory;
+
 
 	public Game() {
 
@@ -71,7 +72,7 @@ public class Game extends Canvas implements Runnable, EventListener {
 		font = new Font();
 		addKeyListener(key);
 		
-		inventory = new Inventory(WIDTH,HEIGHT);
+
 
 		// Creating JFrame (window)
 
@@ -84,7 +85,8 @@ public class Game extends Canvas implements Runnable, EventListener {
 	public static void main(String args[]) throws InstantiationException, IllegalAccessException {
 		createWindow();
 		screen = new Screen(WIDTH, HEIGHT);
-		map = new Map(WIDTH * 2, HEIGHT * 2);
+		//map = new Map(WIDTH * 2, HEIGHT * 2);
+		mainScene = new MainScene(WIDTH,HEIGHT,SCALE,mouse,key, screen);
 
 	}
 
@@ -170,29 +172,9 @@ public class Game extends Canvas implements Runnable, EventListener {
 
 		screen.clear();
 
-		map.render(screen);
-		
-		inventory.render(screen);
-
-		// Code to be copied to another class
-
-		if (mouse.getY() < HEIGHT * SCALE - 30 * SCALE) {
-
-			PlantTile selected = new PlantTile(Sprite.grass);
-			if (mouse.getX() > 0 && mouse.getY() > 0) {
-
-				selected = map.getTile((mouse.getX() / SCALE) / 16, (mouse.getY() / SCALE) / 16);
-
-			}
-
-			font.render(0, HEIGHT - 25, String.valueOf(selected.name), screen);
-
-			screen.renderSprite(selected.x, selected.y, Sprite.selected);
-
-		}
-
-		// End of the code to be copied to another class
-
+		//map.render(screen);
+		mainScene.render();
+	
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
 		}
@@ -209,22 +191,8 @@ public class Game extends Canvas implements Runnable, EventListener {
 
 	private void tick() {
 		key.update();
-
-		if (key.up) {
-			screen.camera.y--;
-		}
-
-		if (key.right) {
-			screen.camera.x++;
-		}
-
-		if (key.down) {
-			screen.camera.y++;
-		}
-
-		if (key.left) {
-			screen.camera.x--;
-		}
+		mainScene.update();
+		
 
 	}
 

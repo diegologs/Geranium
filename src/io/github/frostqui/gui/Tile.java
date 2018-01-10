@@ -12,6 +12,10 @@ public class Tile {
 		
 	}
 	
+	public Tile() {
+		
+	}
+	
 	public void render(int x, int y, Screen screen) {
 		this.x = x;
 		this.y = y;

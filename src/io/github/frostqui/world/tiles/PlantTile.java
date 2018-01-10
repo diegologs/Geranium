@@ -42,7 +42,7 @@ public class PlantTile extends Tile {
 		super(sprite);
 		this.random = new Random();
 		
-		this.tick_speed = 1000;
+		this.tick_speed = 20;
 		this.tick_counter = 0;
 
 		this.xs_tite = sprite;
@@ -71,21 +71,24 @@ public class PlantTile extends Tile {
 
 	public void grow() {
 
-		life += (grow_speed * 10) + random.nextInt(60) * random.nextInt(60);
+		if(life < 0) {
+			life = 0;
+		}
+		life += (grow_speed) + random.nextInt((100 - -30) + 1) + -30;
 
-		if (life > 50 * tick_speed) {
+		if (life > 500 * tick_speed) {
 			this.sprite = this.s_tile;
 		}
 
-		if (life > 100 * tick_speed) {
+		if (life > 1000 * tick_speed) {
 			this.sprite = this.m_tile;
 		}
 
-		if (life > 200 * tick_speed) {
+		if (life > 2000 * tick_speed) {
 			this.sprite = this.l_tile;
 		}
 
-		if (life > 400 * tick_speed) {
+		if (life > 4000 * tick_speed) {
 			this.sprite = this.xl_tile;
 		}
 		

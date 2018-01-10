@@ -36,16 +36,14 @@ public class Map {
 
 				random_ratio = random.nextInt(total_ratio);
 
-				if(random.nextInt(8) < 3)
-				{
-					tiles[i+j*w] = new DirtTile();
-				}else if(random.nextInt(8) < 6){
-					tiles[i+j*w] = new GrassTile();
-				}else {
-					tiles[i+j*w] = new FlowerTile();
-}
+				if (random.nextInt(8) < 3) {
+					tiles[i + j * w] = new DirtTile();
+				} else if (random.nextInt(8) < 6) {
+					tiles[i + j * w] = new GrassTile();
+				} else {
+					tiles[i + j * w] = new FlowerTile();
+				}
 
-				
 			}
 
 		}
@@ -57,15 +55,24 @@ public class Map {
 		for (int i = 0; i < w / 16; i++) {
 			for (int j = 0; j < h / 16; j++) {
 				tiles[i + j * w].render(i * 16, j * 16, screen);
-				tiles[i + j * w].update();
 
 			}
 		}
 
 	}
-	
+
+	public void update() {
+
+		for (int i = 0; i < w / 16; i++) {
+			for (int j = 0; j < h / 16; j++) {
+				tiles[i + j * w].update();
+
+			}
+		}
+	}
+
 	public PlantTile getTile(int i, int j) {
-		return tiles[i+j*w];
+		return tiles[i + j * w];
 	}
 
 }

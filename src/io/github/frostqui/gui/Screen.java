@@ -52,6 +52,26 @@ public class Screen {
 		}
 	}
 
+	public void fillRect(int xp, int yp, int width, int height, int color, boolean fixed) {
+		
+		if (fixed) {
+			xp -= camera.x;
+			yp -= camera.y;
+		}
+
+		for (int y = 0; y < height; y++) {
+			int yo = yp + y;
+			if (yo < 0 || yo >= this.h)
+				continue;
+			for (int x = 0; x < width; x++) {
+				int xo = xp + x;
+				if (xo < 0 || xo >= this.w)
+					continue;
+				pixels[xo + yo * this.w] = color;
+			}
+		}
+	}
+
 	/**
 	 * Rendering a sprite int the game
 	 * 
