@@ -50,7 +50,7 @@ public class Sprite {
 	}
 	
 	public void render(int x, int y, Screen screen) {
-		screen.renderSprite(x, y, this);
+		screen.renderSprite(x, y, this, false);
 	}
 	
 	

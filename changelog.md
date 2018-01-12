@@ -12,6 +12,10 @@
     - Plants basic growing
     - Added dirt tile
     - Growing speed adjustments
+    - Created main scene with the map creation
+    - Moved selecting tiles into different class
+    - Added simple inventory system wich can store objects
+    - Inventory can be painted
 
 ![Geranium 0.0.2](https://i.imgur.com/ZM6Yz8C.png)
 

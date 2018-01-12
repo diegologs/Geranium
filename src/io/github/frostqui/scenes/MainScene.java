@@ -34,8 +34,7 @@ public class MainScene implements EventListener {
 	private Mouse mouse;
 	private Screen screen;
 
-	public MainScene(int w, int h, int scale, Mouse mouse, Keyboard key, Screen screen)
-			throws InstantiationException, IllegalAccessException {
+	public MainScene(int w, int h, int scale, Mouse mouse, Keyboard key, Screen screen){
 
 		this.mouse = mouse;
 		this.key = key;
@@ -45,7 +44,7 @@ public class MainScene implements EventListener {
 		this.screen = screen;
 
 		map = new Map(w * 2, h * 2);
-		System.out.println(w * h);
+		
 
 		font = new Font();
 
@@ -61,7 +60,7 @@ public class MainScene implements EventListener {
 		inventory.render(screen);
 		
 		if (mouse.getY() < h * scale - 30 * scale && selectTiles.selected != null) {
-			screen.renderSprite(selectTiles.selected.x, selectTiles.selected.y, Sprite.selected);
+			screen.renderSprite(selectTiles.selected.x, selectTiles.selected.y, Sprite.selected, true);
 		}
 		
 

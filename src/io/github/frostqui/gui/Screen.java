@@ -83,12 +83,25 @@ public class Screen {
 	 *            to render
 	 */
 
-	public void renderSprite(int x, int y, Sprite sprite) {
+	public void renderSprite(int x, int y, Sprite sprite, boolean fixed) {
 
 		for (int j = 0; j < sprite.size; j++) {
-			int ya = j + y + camera.y;
+			int ya;
+			if(fixed) {
+				ya = j + y;
+			}else {
+				ya = j + y + camera.y;
+			}
+			
 			for (int i = 0; i < sprite.size; i++) {
-				int xa = i + x + camera.x;
+				int xa;
+				
+				if(fixed) {
+					xa = i + x;
+				}else {
+					xa = i + x + camera.x;
+				}
+				
 				if (xa < 0 || ya < 0 || xa >= w || ya >= h)
 					break;
 				if (sprite.pixels[i + j * sprite.size] != ALPHA_COL && sprite.pixels[i + j * sprite.size] != 0xff7f007f)

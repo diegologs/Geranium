@@ -35,8 +35,8 @@ public class Inventory {
 
 	public void render(Screen screen) {
 		for(int i=0; i<items.size(); i++) {
-			screen.renderSprite((w / 2) + (i * 22), h - 25, items.get(i).sprite);
-			screen.renderSprite((w / 2) + (i * 22), h - 25, Sprite.selected);
+			screen.renderSprite((w / 2) + (i * 22), h - 25, items.get(i).sprite, true);
+			screen.renderSprite((w / 2) + (i * 22), h - 25, Sprite.selected, true);
 			
 			
 		}

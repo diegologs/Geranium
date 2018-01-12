@@ -27,5 +27,9 @@ public class Tile {
 		
 	}
 	
+	public void setSprite(Sprite sprite) {
+		this.sprite = sprite;
+	}
+	
 
 }
